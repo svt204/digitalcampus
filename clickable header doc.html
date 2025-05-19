@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Clickable Banner Content&lt;/title&gt;</p>
+<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Reset margin/padding on html/body for iframe to avoid unexpected spacing */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>html, body {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: 'Montserrat', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 100%;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow-x: hidden; /* Prevent horizontal scrollbar if content slightly overflows */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Main clickable container */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.clickable-full-width-container {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: table !important; /* Using CSS table layout for robustness */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100% !important; <span class="Apple-converted-space">  </span>/* Takes full width of the iframe */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>table-layout: fixed !important; /* Important for consistent cell widths */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-spacing: 0; /* Removes default table cell spacing */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 15px; /* Padding around the content within the container */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-sizing: border-box !important; /* Ensures padding is included in width/height */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f0f0f0; /* Background color of the banner */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* border: 1px solid #ccc; */ /* Optional border, can be removed if iframe has one or for cleaner look */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 8px; /* Rounded corners for the banner */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-decoration: none !important; /* Removes underline from the link */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: inherit !important; /* Inherits text color, doesn't default to link blue */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.clickable-full-width-container:hover {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #e9e9e9; /* Slightly different background on hover */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow on hover */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Text container (left cell) */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.text-container {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: table-cell !important; /* Behaves as a table cell */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 60% !important; /* Takes 60% of the container's width */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>vertical-align: middle !important; /* Vertically centers content within the cell */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-right: 15px; /* Space between text and image cell */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: left; /* Aligns text to the left */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.text-container h4 {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 1.15em; /* Font size for the heading */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: 700; /* Bold text */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height: 1.5; /* Line height for readability */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #333 !important; /* Text color */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Image container (right cell) */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.image-container {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: table-cell !important; /* Behaves as a table cell */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 40% !important; /* Takes 40% of the container's width */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>vertical-align: middle !important; /* Vertically centers content within the cell */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: right; /* Aligns image to the right of its cell if it's narrower */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.image-container img {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 100%; /* Image scales to fit the cell's width */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: auto; /* Maintains aspect ratio */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: inline-block !important; /* Allows vertical-align to work well */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>vertical-align: middle; /* Aligns image nicely if cell is taller */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px; /* Rounded corners for the image */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Responsive adjustments - these apply based on the iframe's width */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.clickable-full-width-container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block !important; /* Stack elements vertically */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.text-container,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.image-container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block !important; /* Each cell becomes a block */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100% !important; /* Each takes full width when stacked */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-right: 0; /* Remove right padding */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center !important; /* Center content when stacked */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.text-container {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Text is first in HTML, so it will be on top when stacked */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>margin-bottom: 15px; /* Space below text, before the image */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.image-container img {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 70%; /* Adjust image size for stacked view */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-left: auto; /* Center the image */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-right: auto; /* Center the image */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.text-container h4 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.1em; /* Adjust font size for smaller screens */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">   </span>@media (max-width: 480px) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.image-container img {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 80%; /* Image can be a bit wider on very small screens */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.text-container h4 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1em; /* Further adjust font size */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;a href="https://campus.globallandscapesforum.org/all-courses" target="_blank"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">   </span>class="clickable-full-width-container"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="text-container"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h4&gt;Explore expert-led&lt;br&gt;and demand-driven courses&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="image-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;img src="https://i.ibb.co/XZkTgQXV/Asset-56-3x.png" alt="Promotional banner image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
