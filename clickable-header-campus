@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clickable Banner Content</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Reset margin/padding on html/body for iframe to avoid unexpected spacing */
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    height: 100%; 
+    overflow-x: hidden; /* Prevent horizontal scrollbar if content slightly overflows */
+  }
+
+  /* The main clickable container (<a> tag) */
+  .clickable-full-width-container {
+    display: flex; 
+    align-items: center; /* Vertically aligns items to the center */
+    justify-content: space-between; 
+    width: 100%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding: 0; /* No padding on the main container */
+    box-sizing: border-box; 
+    border-radius: 8px; 
+    text-decoration: none !important; 
+    color: inherit !important; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+  }
+
+  .clickable-full-width-container:hover {
+    /* background-color: #f9f9f9; */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
+  }
+
+  /* Styling for the text container (on the left) */
+  .text-container {
+    flex-grow: 1; 
+    margin-left: 20px; 
+    margin-right: 20px; 
+    text-align: left; 
+  }
+
+  .text-container h4 {
+    font-size: 1.2em; 
+    font-weight: 700; 
+    margin-top: 0; 
+    margin-bottom: 0; 
+    line-height: 1.5; 
+    color: #333; 
+  }
+
+  /* Styling for the image container (on the right) */
+  .image-container {
+    flex-shrink: 0; 
+    margin-right: 20px; 
+  }
+
+  .image-container img {
+    max-width: 480px; 
+    height: auto; 
+    display: block; 
+    border-radius: 18px; 
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 900px) { 
+    .clickable-full-width-container {
+      flex-direction: column-reverse; 
+      align-items: center; 
+      text-align: center; 
+      padding: 15px 0; 
+    }
+
+    .text-container {
+      margin-right: 0; 
+      margin-left: 0;
+      text-align: center; 
+    }
+    
+    .image-container {
+      margin-right: 0; 
+      margin-left: 0;
+      margin-bottom: 20px; 
+    }
+
+    .image-container img {
+        max-width: 90%; 
+    }
+
+    .text-container h4 {
+        font-size: 1.1em; 
+        line-height: 1.5;
+    }
+  }
+
+   @media (max-width: 480px) {
+    .image-container img {
+        max-width: 95%;
+    }
+    .text-container h4 {
+        font-size: 1em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://campus.globallandscapesforum.org/all-courses" target="_blank" 
+   class="clickable-full-width-container">
+  
+  <div class="text-container">
+    <h4>Explore expert-led<br>and demand-driven courses</h4>
+  </div>
+  
+  <div class="image-container">
+    <img src="https://i.ibb.co/XZkTgQXV/Asset-56-3x.png" alt="Promotional Image">
+  </div>
+</a>
+
+</body>
+</html>
